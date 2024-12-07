@@ -42,15 +42,13 @@
 <p>Here are the first 5 rows of the cleaned DataFrame:</p>
 <p></p>
 
-| gameid                | result | position | league | teamname          | playername   | kills | deaths | assists | totalgold | minionkills | monsterkills | wardskilled | dpm     | damageshare | damagetakenperminute |
-|-----------------------|--------|----------|--------|-------------------|--------------|-------|--------|---------|-----------|-------------|--------------|-------------|---------|-------------|----------------------|
-| ESPORTSTMNT01_2690210 | 0      | top      | LCKC   | BRION Challengers | Soboro       | 2     | 3      | 2       | 10934     | 220         | 11           | 6           | 552.294 | 0.278784    | 1072.4               |
-| ESPORTSTMNT01_2690210 | 0      | jng      | LCKC   | BRION Challengers | Raptor       | 2     | 5      | 6       | 9138      | 33          | 115          | 18          | 412.084 | 0.208009    | 944.273              |
-| ESPORTSTMNT01_2690210 | 0      | mid      | LCKC   | BRION Challengers | Feisty       | 2     | 2      | 3       | 9715      | 177         | 16           | 7           | 499.405 | 0.252086    | 581.646              |
-| ESPORTSTMNT01_2690210 | 0      | bot      | LCKC   | BRION Challengers | Gamin        | 2     | 4      | 2       | 10605     | 208         | 18           | 6           | 389.002 | 0.196358    | 463.853              |
-| ESPORTSTMNT01_2690210 | 0      | sup      | LCKC   | BRION Challengers | Loopy        | 1     | 5      | 6       | 6678      | 42          | 0            | 14          | 128.301 | 0.0647631   | 475.026              |
-
-
+| gameid                | playername   |
+|:----------------------|:-------------|
+| ESPORTSTMNT01_2690210 | Soboro       |
+| ESPORTSTMNT01_2690210 | Raptor       |
+| ESPORTSTMNT01_2690210 | Feisty       |
+| ESPORTSTMNT01_2690210 | Gamin        |
+| ESPORTSTMNT01_2690210 | Loopy        |
 
 <h3>Bivariate Analysis</h3>
 <iframe
