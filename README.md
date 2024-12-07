@@ -28,6 +28,8 @@ Here are some of the relevant columns in more detail:
 
 <h2>Data Cleaning and Exploratory Data Analysis</h2>
 
+<h4>In this section, I narrowed the focus of my central question to the following: <b>Which role “carries” (does the best) in their team more often: ADCs (Bot lanes) or Mid laners?</b></h4>
+
 <h3>Data Cleaning</h3>
 Because my central question is about individual player roles, I first removed all of the rows with team data from my data frame so as not to have issues later on in my analysis. These were the rows where the 'position' column contained 'team'. This left me with only individual player data, where each role was one of the following five roles: 'top' (Top Lane), 'jng' (Jungle), 'mid' (Mid Lane), 'bot' (Bot Lane or ADC), 'sup' (Support).
 
@@ -46,8 +48,6 @@ Here are the first 5 rows of the cleaned DataFrame:
 |  4 | ESPORTSTMNT01_2690210 | BRION Challengers |        0 | Loopy        | sup        |       1 |        5 |         6 |        6678 |            42 |              0 |            14 | 128.301 |     0.0647631 |                475.026 |
 
 There are too many columns to successfully display, so I chose to only include essential identification columns and the columns relevant to my later analysis.
-
-<h4>In this section, I narrowed the focus of my central question to the following: <b>Which role “carries” (does the best) in their team more often: ADCs (Bot lanes) or Mid laners?</b></h4>
 
 <h3>Univariate Analysis</h3>
 <iframe
@@ -192,13 +192,13 @@ My model's accuracy is about 0.29. In my opinion, this is not a very successful 
 
 <h3>Final Prediction Model</h3>
 
-In addition to 'kills' and 'deaths', I used 'assists', 'totalgold', 'minionkills', 'monsterkills', 'wardskilled', 'dpm', 'damageshare', and 'damagetakenperminute' for my final prediction model. I once again used a KNeighborsClassifier.
+In addition to 'kills' and 'deaths', I used 'assists', 'totalgold', 'minionkills', 'monsterkills', 'wardskilled', 'dpm', 'damageshare', and 'damagetakenperminute' for my final prediction model. I chose these features because they collectively measure the amount of damage that a player causes, the amount of gold they earn, and the amount of damage that they sustain, all of which are the most important factors contributing to player success. I once again used a KNeighborsClassifier.
 
 To engineer a new feature, I used StandardScaler on all of my columns (as they are all quantitative). This is especially important for a KNeighborsClassifier, as it relies on the distance between points to make a prediction. If the features are not standardized, it could weigh certain features too heavily due to their scale. Standardizing the features with StandardScaler eliminates this concern.
 
 In addition, I added a new column to the data called 'kda' using a Function Transformer. KDA (the Kill-Death-Assist ratio) uses the following equation: (Kills + Assists) / Deaths. It's a common metric of success in League of Legends. However, it wasn't in the existing dataset, so I added it as part of the pipeline because I thought that it would provide more insight into which players played well.
 
-As I mentioned above, I once again used a KNeighborsClassifier, but this time, I searched for the best number of neighbors using hyperparameters, from 1 to 19 inclusive. I did this with GridSearchCV, and using 18 neighbors for the KNeighborsClassifier ended up performing the best.
+As I mentioned above, I once again used a KNeighborsClassifier, but this time, I searched for the best number of neighbors using hyperparameters, from 1 to 19 inclusive. I did this with GridSearchCV, and using 19 neighbors for the KNeighborsClassifier ended up performing the best.
 
 This prediction model had an accuracy of 0.78, which was significantly better than the baseline model's accuracy of 0.29. This means that it correctly predicted a player's role based on their post-game statistics nearly 80% of the time, making it a successful model, in my opinion.
 

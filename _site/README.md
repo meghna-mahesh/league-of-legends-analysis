@@ -192,13 +192,13 @@ My model's accuracy is about 0.29. In my opinion, this is not a very successful 
 
 <h3>Final Prediction Model</h3>
 
-In addition to 'kills' and 'deaths', I used 'assists', 'totalgold', 'minionkills', 'monsterkills', 'wardskilled', 'dpm', 'damageshare', and 'damagetakenperminute' for my final prediction model. I once again used a KNeighborsClassifier.
+In addition to 'kills' and 'deaths', I used 'assists', 'totalgold', 'minionkills', 'monsterkills', 'wardskilled', 'dpm', 'damageshare', and 'damagetakenperminute' for my final prediction model. I chose these features because they collectively measure the amount of damage that a player causes, the amount of gold they earn, and the amount of damage that they sustain, all of which are the most important factors contributing to player success. I once again used a KNeighborsClassifier.
 
 To engineer a new feature, I used StandardScaler on all of my columns (as they are all quantitative). This is especially important for a KNeighborsClassifier, as it relies on the distance between points to make a prediction. If the features are not standardized, it could weigh certain features too heavily due to their scale. Standardizing the features with StandardScaler eliminates this concern.
 
 In addition, I added a new column to the data called 'kda' using a Function Transformer. KDA (the Kill-Death-Assist ratio) uses the following equation: (Kills + Assists) / Deaths. It's a common metric of success in League of Legends. However, it wasn't in the existing dataset, so I added it as part of the pipeline because I thought that it would provide more insight into which players played well.
 
-As I mentioned above, I once again used a KNeighborsClassifier, but this time, I searched for the best number of neighbors using hyperparameters, from 1 to 19 inclusive. I did this with GridSearchCV, and using 18 neighbors for the KNeighborsClassifier ended up performing the best.
+As I mentioned above, I once again used a KNeighborsClassifier, but this time, I searched for the best number of neighbors using hyperparameters, from 1 to 19 inclusive. I did this with GridSearchCV, and using 19 neighbors for the KNeighborsClassifier ended up performing the best.
 
 This prediction model had an accuracy of 0.78, which was significantly better than the baseline model's accuracy of 0.29. This means that it correctly predicted a player's role based on their post-game statistics nearly 80% of the time, making it a successful model, in my opinion.
 
