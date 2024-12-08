@@ -1,7 +1,3 @@
-# League of Legends: Which Roles Drive Team Success?
-
-<h4>By: Meghna Mahesh (meghnam@umich.edu)</h4>
-
 <h2>Introduction</h2>
 
 League of Legends (LoL) is a multiplayer online battle arena video game created in 2009 by Riot Games. In League of Legends, two teams of five players each face each other in player-versus-player combat. Each team is made up of five roles: Top Lane, Jungle, Mid Lane, Bot Lane (ADC), and Support. The question I am exploring is: <b>how important is each role to a team's success?</b> My analysis will help players and coaches optimize team composition and play styles to improve their chances of victory.
