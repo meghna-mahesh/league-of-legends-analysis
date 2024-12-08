@@ -1,5 +1,7 @@
 # League of Legends: Which Roles Drive Team Success?
 
+<h4>By: Meghna Mahesh (meghnam@umich.edu)</h4>
+
 <h2>Introduction</h2>
 
 League of Legends (LoL) is a multiplayer online battle arena video game created in 2009 by Riot Games. In League of Legends, two teams of five players each face each other in player-versus-player combat. Each team is made up of five roles: Top Lane, Jungle, Mid Lane, Bot Lane (ADC), and Support. The question I am exploring is: <b>how important is each role to a team's success?</b> My analysis will help players and coaches optimize team composition and play styles to improve their chances of victory.
@@ -89,11 +91,13 @@ This side-by-side bar chart shows the average number of kills and deaths per mat
 This table shows the average damage share, the average number of deaths, and the average number of kills per match for each role (ADCs and Mid laners). It indicates that ADCs generally have  more kills and slightly less deaths than Mid laners, with approximately the same damage share per match, implying that they "carry" their team more often.
 
 <h4>Conclusion</h4>
-The figures above (in addition to further analysis) seem to indicate that ADCs are marginally more important to a team's success than Mid laners. They have more kills per match and die slightly less per match, indicating that they "carry" their team more often. However, more analysis should be done on other features to make a stronger conclusion.
+The figures above seem to indicate that ADCs are marginally more important to a team's success than Mid laners. They have more kills per match and die slightly less per match, indicating that they "carry" their team more often. However, more analysis should be done on other features to make a stronger conclusion.
 
 <h3>Imputation</h3>
 
-I imputed values in 6 columns: 'minionkills', 'monsterkills', 'wardskilled', 'damageshare', 'dpm', and 'damagetakenperminute'. These were the only columns with NaN values that I was planning on using in my later analysis. To impute each missing value, I replaced it with the mean of the corresponding statistic for that player across their other games. For example, if one row with playername 'Soboro' had a missing 'minionkills' value, I filled in this value with the mean 'minionkills' value for 'Soboro' across Soboro's other games. I felt that this would successfully fill in missing values while accurately representing a player's ability.
+I imputed values in 6 columns: 'minionkills', 'monsterkills', 'wardskilled', 'damageshare', 'dpm', and 'damagetakenperminute'. These were the only columns with NaN values that I was planning on using in my later analysis. To impute each missing value, I replaced it with the mean of the corresponding statistic for that player across their other games.
+
+For example, if one row with playername 'Soboro' had a missing 'minionkills' value, I filled in this value with the mean 'minionkills' value for 'Soboro' across Soboro's other games. I felt that this would successfully fill in missing values while accurately representing a player's ability.
 
 <h4>Distributions of Imputed Variables before Imputation</h4>
 
@@ -177,20 +181,20 @@ Below, I have plotted the distributions of the 6 columns I imputed values for af
   frameborder="0"
 ></iframe>
 
-<h3>Framing a Prediction Problem</h3>
+<h2>Framing a Prediction Problem</h2>
 
 My prediction problem is as follows: <b>Predict which role (Top Lane, Jungle, Mid Lane, Bot Lane (ADC), Support) a player played given their post-game data.</b> 
 
-This is a classification problem, and because there are 5 distinct roles, I am performing multiclass classification. The response variable is the 'position' column. I chose this response variable because I wanted to see if there are significant enough differences in key gameplay statistics between roles to predict a player's position solely from their game statistics. If these differences are significant, this could inform team composition strategy. I am using accuracy as a measure of success instead of other suitable metrics such as f1-score because the dataset is balanced, with the same number of players for each role.
+This is a classification problem, and because there are 5 distinct roles, I am performing multiclass classification. The response variable is the 'position' column. I chose this response variable because I wanted to see if there were significant enough differences in key gameplay statistics between roles to predict a player's position solely from their game statistics. Statistical differences between roles could inform team composition strategy. I am using accuracy as a measure of success instead of other suitable metrics such as f1-score because the dataset is balanced, with the same number of players for each role, and accuracy performs well with balanced datasets.
 
 I am using the following features for my prediction model: 'kills', 'deaths', 'assists', 'totalgold', 'minionkills', 'monsterkills', 'wardskilled', 'dpm', 'damageshare', 'damagetakenperminute'. I chose these features because they are all common metrics of player success in League of Legends. All of these features are post-game statistics, so they will be available at the time of prediction.
 
-<h3>Baseline Model</h3>
-My baseline prediction model uses a KNeighborsClassifier on the features 'kills' and 'deaths', which are both quantiative features. I chose to use these two features because they are direct measures of player success, and I hypothesized that they would vary based on importance of role. I had no categorical features, so I did not need to perform any encodings.
+<h2>Baseline Model</h2>
+My baseline prediction model uses a KNeighborsClassifier on the features 'kills' and 'deaths', which are both quantiative features. I chose to use these two features because they are direct measures of player success, and I hypothesized that they would vary based on importance of role. I used no categorical features, so I did not need to perform any encodings.
 
 My model's accuracy is about 0.29. In my opinion, this is not a very successful model, as it mispredicts more often than it predicts correctly. This is likely because only using the 'kills' and 'deaths' columns does not give the model enough information to make successful predictions.
 
-<h3>Final Prediction Model</h3>
+<h2>Final Model</h2>
 
 In addition to 'kills' and 'deaths', I used 'assists', 'totalgold', 'minionkills', 'monsterkills', 'wardskilled', 'dpm', 'damageshare', and 'damagetakenperminute' for my final prediction model. I chose these features because they collectively measure the amount of damage that a player causes, the amount of gold they earn, and the amount of damage that they sustain, all of which are the most important factors contributing to player success. I once again used a KNeighborsClassifier.
 
@@ -202,4 +206,4 @@ As I mentioned above, I used a KNeighborsClassifier again, but this time, I sear
 
 This prediction model had an accuracy of 0.78, which was significantly better than the baseline model's accuracy of 0.29. This means that it correctly predicted a player's role based on their post-game statistics nearly 80% of the time, making it a successful model, in my opinion.
 
-The success of the model indicates that there is significant difference in performance across roles. By identifying which roles generally perform better (and are therefore more important to the team), players and coaches can optimize team composition to maximize success.
+The success of the model indicates that there is difference in performance across roles. By identifying which roles generally perform better (and are therefore more important to the team), players and coaches can optimize team composition to maximize success.
