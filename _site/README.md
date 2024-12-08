@@ -1,4 +1,4 @@
-# League of Legends: Role Importance
+# League of Legends: Which Roles Drive Team Success?
 
 <h2>Introduction</h2>
 
@@ -28,6 +28,8 @@ Here are some of the relevant columns in more detail:
 
 <h2>Data Cleaning and Exploratory Data Analysis</h2>
 
+<h4>In this section, I narrowed the focus of my central question to the following: <b>Which role “carries” (does the best) in their team more often: ADCs (Bot lanes) or Mid laners?</b></h4>
+
 <h3>Data Cleaning</h3>
 Because my central question is about individual player roles, I first removed all of the rows with team data from my data frame so as not to have issues later on in my analysis. These were the rows where the 'position' column contained 'team'. This left me with only individual player data, where each role was one of the following five roles: 'top' (Top Lane), 'jng' (Jungle), 'mid' (Mid Lane), 'bot' (Bot Lane or ADC), 'sup' (Support).
 
@@ -46,8 +48,6 @@ Here are the first 5 rows of the cleaned DataFrame:
 |  4 | ESPORTSTMNT01_2690210 | BRION Challengers |        0 | Loopy        | sup        |       1 |        5 |         6 |        6678 |            42 |              0 |            14 | 128.301 |     0.0647631 |                475.026 |
 
 There are too many columns to successfully display, so I chose to only include essential identification columns and the columns relevant to my later analysis.
-
-<h4>In this section, I narrowed the focus of my central question to the following: <b>Which role “carries” (does the best) in their team more often: ADCs (Bot lanes) or Mid laners?</b></h4>
 
 <h3>Univariate Analysis</h3>
 <iframe
