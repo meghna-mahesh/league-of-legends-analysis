@@ -192,7 +192,7 @@ My baseline prediction model uses a KNeighborsClassifier on the features 'kills'
 
 My model's accuracy is about 0.29. In my opinion, this is not a very successful model, as it mispredicts more often than it predicts correctly. This is likely because only using the 'kills' and 'deaths' columns does not give the model enough information to make successful predictions.
 
-<h2>Final Prediction Model</h2>
+<h2>Final Model</h2>
 
 In addition to 'kills' and 'deaths', I used 'assists', 'totalgold', 'minionkills', 'monsterkills', 'wardskilled', 'dpm', 'damageshare', and 'damagetakenperminute' for my final prediction model. I chose these features because they collectively measure the amount of damage that a player causes, the amount of gold they earn, and the amount of damage that they sustain, all of which are the most important factors contributing to player success. I once again used a KNeighborsClassifier.
 
