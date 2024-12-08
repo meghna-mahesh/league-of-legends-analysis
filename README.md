@@ -1,4 +1,4 @@
-<h4>By: Meghna Mahesh (meghnam@umich.edu)</h4>
+<h3>Author: Meghna Mahesh (meghnam@umich.edu)</h3>
 
 <h2>Introduction</h2>
 
