@@ -1,4 +1,4 @@
-# League of Legends: Which Team Roles Drive Success?
+# League of Legends: Which Roles Drive Team Success?
 
 <h2>Introduction</h2>
 
