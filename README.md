@@ -179,7 +179,7 @@ Below, I have plotted the distributions of the 6 columns I imputed values for af
   frameborder="0"
 ></iframe>
 
-<h3>Framing a Prediction Problem</h3>
+<h2>Framing a Prediction Problem</h2>
 
 My prediction problem is as follows: <b>Predict which role (Top Lane, Jungle, Mid Lane, Bot Lane (ADC), Support) a player played given their post-game data.</b> 
 
@@ -187,12 +187,12 @@ This is a classification problem, and because there are 5 distinct roles, I am p
 
 I am using the following features for my prediction model: 'kills', 'deaths', 'assists', 'totalgold', 'minionkills', 'monsterkills', 'wardskilled', 'dpm', 'damageshare', 'damagetakenperminute'. I chose these features because they are all common metrics of player success in League of Legends. All of these features are post-game statistics, so they will be available at the time of prediction.
 
-<h3>Baseline Model</h3>
+<h2>Baseline Model</h2>
 My baseline prediction model uses a KNeighborsClassifier on the features 'kills' and 'deaths', which are both quantiative features. I chose to use these two features because they are direct measures of player success, and I hypothesized that they would vary based on importance of role. I used no categorical features, so I did not need to perform any encodings.
 
 My model's accuracy is about 0.29. In my opinion, this is not a very successful model, as it mispredicts more often than it predicts correctly. This is likely because only using the 'kills' and 'deaths' columns does not give the model enough information to make successful predictions.
 
-<h3>Final Prediction Model</h3>
+<h2>Final Prediction Model</h2>
 
 In addition to 'kills' and 'deaths', I used 'assists', 'totalgold', 'minionkills', 'monsterkills', 'wardskilled', 'dpm', 'damageshare', and 'damagetakenperminute' for my final prediction model. I chose these features because they collectively measure the amount of damage that a player causes, the amount of gold they earn, and the amount of damage that they sustain, all of which are the most important factors contributing to player success. I once again used a KNeighborsClassifier.
 
