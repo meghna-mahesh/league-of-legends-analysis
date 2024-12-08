@@ -1,5 +1,3 @@
-# League of Legends: Which Roles Drive Team Success?
-
 <h4>By: Meghna Mahesh (meghnam@umich.edu)</h4>
 
 <h2>Introduction</h2>
